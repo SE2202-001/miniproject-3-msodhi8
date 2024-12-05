@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upwork Jobs Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #filters, #sort-options, #job-list, #job-details {
+            margin: 20px 0;
+        }
+        #job-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #job-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        #job-list li:hover {
+            background-color: #f0f0f0;
+        }
+        #job-details {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+        #file-input {
+            margin-bottom: 20px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        select {
+            margin-right: 20px;
+        }
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Upwork Jobs Analysis</h1>
+
+<input type="file" id="file-input" accept=".json"><br>
+
+<div id="error-message" class="error"></div>
+
+<div id="content">
+    <div id="filters">
+        <h3>Filters</h3>
+        <label for="level-filter">Level:</label>
+        <select id="level-filter">
+            <option value="">All</option>
+        </select>
+        <label for="type-filter">Type:</label>
+        <select id="type-filter">
+            <option value="">All</option>
+        </select>
+        <label for="skill-filter">Skill:</label>
+        <select id="skill-filter">
+            <option value="">All</option>
+        </select>
+    </div>
+
+    <div id="sort-options">
+        <h3>Sort By</h3>
+        <select id="sort-select">
+            <option value="postedTimeNewest">Posted Time (Newest)</option>
+            <option value="postedTimeOldest">Posted Time (Oldest)</option>
+            <option value="titleAZ">Title (A-Z)</option>
+            <option value="titleZA">Title (Z-A)</option>
+        </select>
+    </div>
+
+    <ul id="job-list">
+    </ul>
+
+    <div id="job-details">
+        <h2 id="job-title"></h2>
+        <p><strong>Posted:</strong> <span id="job-posted"></span></p>
+        <p><strong>Type:</strong> <span id="job-type"></span></p>
+        <p><strong>Level:</strong> <span id="job-level"></span></p>
+        <p><strong>Estimated Time:</strong> <span id="job-estimated-time"></span></p>
+        <p><strong>Skill:</strong> <span id="job-skill"></span></p>
+        <p><strong>Details:</strong></p>
+        <p id="job-detail-text"></p>
+        <p><a id="job-page-link" href="#" target="_blank">View Job Page</a></p>
+    </div>
+</div>
+
+<script src="JobAnalysis.js"></script>
+
+</body>
+</html>
